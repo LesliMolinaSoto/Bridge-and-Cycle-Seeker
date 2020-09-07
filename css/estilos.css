@@ -1,0 +1,305 @@
+@font-face{
+    font-family:'letters';
+    src: url(../fonts/Letters\ for\ Learners.ttf);
+}
+
+body {
+    background:#6e6b6b;
+    display: block; 
+}
+
+#desarrolladores{
+    border: 5px solid black;
+    position:relative;
+    background:#fff;
+    width: 900px;
+    height: 200px;
+    left: 950px;
+    bottom: 275px;
+    overflow: scroll;
+    font: caption;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+#unmsm{
+    border: 5px black;
+    background-image: url(../images/unmsm.png);
+    width: 860px;
+    height: 340px;
+    
+}
+
+#grafica{
+    width: 700px;
+    height: 700px;
+    border: 5px solid black;
+    position:relative;
+    background:#fff;
+    border-radius: 20px;
+    bottom: 170px;
+    
+}
+
+.Nodos{ 
+    font-size:60px;
+    border: 5px solid transparent;
+    width: 585px;
+    height: 100px;
+    position: relative;
+    left: 750px;
+    bottom:875px;
+    text-shadow: 0.0px 10.0px 0.02px #000, 9.8px 2.1px 0.02px #000, 4.2px -9.1px 0.02px #000, -8.0px -6.0px 0.02px #000, -7.6px 6.5px 0.02px #000, 4.8px 8.8px 0.02px #000, 9.6px -2.8px 0.02px #000, -0.7px -10.0px 0.02px #000, -9.9px -1.5px 0.02px #000, -3.5px 9.4px 0.02px #000, 8.4px 5.4px 0.02px #000, 7.1px -7.0px 0.02px #000, -5.4px -8.4px 0.02px #000, -9.4px 3.5px 0.02px #000, 1.4px 9.9px 0.02px #000, 10.0px 0.8px 0.02px #000, 2.9px -9.6px 0.02px #000, -8.7px -4.8px 0.02px #000, -6.6px 7.5px 0.02px #000, 5.9px 8.0px 0.02px #000, 9.1px -4.1px 0.02px #000, -2.1px -9.8px 0.02px #000, -10.0px -0.1px 0.02px #000, -2.2px 9.8px 0.02px #000, 9.1px 4.2px 0.02px #000, 6.1px -8.0px 0.02px #000, -6.5px -7.6px 0.02px #000, -8.8px 4.7px 0.02px #000, 2.7px 9.6px 0.02px #000, 10.0px -0.6px 0.02px #000, 1.5px -9.9px 0.02px #000, -9.3px -3.6px 0.02px #000, -5.5px 8.4px 0.02px #000, 7.0px 7.2px 0.02px #000, 8.5px -5.3px 0.02px #000, -3.4px -9.4px 0.02px #000, -9.9px 1.3px 0.02px #000, -0.8px 10.0px 0.02px #000, 9.6px 2.9px 0.02px #000, 4.9px -8.7px 0.02px #000, -7.5px -6.7px 0.02px #000, -8.1px 5.9px 0.02px #000, 4.0px 9.2px 0.02px #000, 9.8px -2.0px 0.02px #000, 0.2px -10.0px 0.02px #000, -9.7px -2.3px 0.02px #000, -4.3px 9.0px 0.02px #000, 7.9px 6.1px 0.02px #000;
+    display:block;
+    
+}
+.Nodos h2{
+    margin-top: auto;
+    font-family:'letters';
+    font-weight: bolder;
+    
+    color:white;
+
+}
+
+.InputNodos{
+    font-size:60px;
+    border: 5px solid black;
+    width: 149px;
+    height: 52px;
+    position: relative;
+    left: 750px;
+    bottom: 810px;
+    display:block;
+}
+.InputNodos input{
+    right: 1px;
+    width: 150px;
+    font-weight: bold;
+
+}
+.BotonNodos{
+    font-size:60px;
+    border: 5px solid black;
+    width: 98px;
+    height: 39px;
+    position: relative;
+    left: 1045px;
+    bottom: 865px;
+    display:block;
+}
+
+.BotonNodos input{
+    right: 1px;
+}
+
+
+.Aristas{
+    display:block;
+    font-size:60px;
+    border: 5px solid transparent;
+    width: 585px;
+    height: 100px;
+    position: relative;
+    left: 750px;
+    bottom: 680px;
+    text-shadow: 0.0px 10.0px 0.02px #000, 9.8px 2.1px 0.02px #000, 4.2px -9.1px 0.02px #000, -8.0px -6.0px 0.02px #000, -7.6px 6.5px 0.02px #000, 4.8px 8.8px 0.02px #000, 9.6px -2.8px 0.02px #000, -0.7px -10.0px 0.02px #000, -9.9px -1.5px 0.02px #000, -3.5px 9.4px 0.02px #000, 8.4px 5.4px 0.02px #000, 7.1px -7.0px 0.02px #000, -5.4px -8.4px 0.02px #000, -9.4px 3.5px 0.02px #000, 1.4px 9.9px 0.02px #000, 10.0px 0.8px 0.02px #000, 2.9px -9.6px 0.02px #000, -8.7px -4.8px 0.02px #000, -6.6px 7.5px 0.02px #000, 5.9px 8.0px 0.02px #000, 9.1px -4.1px 0.02px #000, -2.1px -9.8px 0.02px #000, -10.0px -0.1px 0.02px #000, -2.2px 9.8px 0.02px #000, 9.1px 4.2px 0.02px #000, 6.1px -8.0px 0.02px #000, -6.5px -7.6px 0.02px #000, -8.8px 4.7px 0.02px #000, 2.7px 9.6px 0.02px #000, 10.0px -0.6px 0.02px #000, 1.5px -9.9px 0.02px #000, -9.3px -3.6px 0.02px #000, -5.5px 8.4px 0.02px #000, 7.0px 7.2px 0.02px #000, 8.5px -5.3px 0.02px #000, -3.4px -9.4px 0.02px #000, -9.9px 1.3px 0.02px #000, -0.8px 10.0px 0.02px #000, 9.6px 2.9px 0.02px #000, 4.9px -8.7px 0.02px #000, -7.5px -6.7px 0.02px #000, -8.1px 5.9px 0.02px #000, 4.0px 9.2px 0.02px #000, 9.8px -2.0px 0.02px #000, 0.2px -10.0px 0.02px #000, -9.7px -2.3px 0.02px #000, -4.3px 9.0px 0.02px #000, 7.9px 6.1px 0.02px #000;
+}
+
+.Aristas h2{
+    margin-top: auto;
+    font-family:'letters';
+    font-weight: bolder;
+    color:white;
+
+}
+
+.Input1Aristas{
+    display:block;
+    font-size:60px;
+    border: 5px solid black;
+    width: 149px;
+    height: 52px;
+    position: relative;
+    left: 750px;
+    bottom:615px;
+   
+}
+.Input1Aristas input{
+    right:1px;
+    width: 150px;
+    font-weight: bold;
+
+}
+
+.Input2Aristas{
+    display:block;
+    font-size:60px;
+    border: 5px solid black;
+    width: 150px;
+    height: 52px;
+    position: relative;
+    left:1000px;
+    bottom: 678px;
+   
+}
+.Input2Aristas input{
+    right: 1px;
+    width: 152px;
+    font-weight: bold;
+
+}
+
+.BotonAristas{
+    display:block;
+    font-size:60px;
+    border: 5px solid black;
+    width: 90px;
+    height: 39px;
+    position: relative;
+    left: 1250px;
+    bottom: 734px;
+}
+
+.BotonAristas input{
+    
+}
+
+.HallarPuentesYCiclos{
+    display:block;
+    font-size:60px;
+    border: 5px solid transparent;
+    width: 680px;
+    height: 100px;
+    position: relative;
+    left: 750px;
+    bottom: 600px;
+    text-shadow: 0.0px 10.0px 0.02px #000, 9.8px 2.1px 0.02px #000, 4.2px -9.1px 0.02px #000, -8.0px -6.0px 0.02px #000, -7.6px 6.5px 0.02px #000, 4.8px 8.8px 0.02px #000, 9.6px -2.8px 0.02px #000, -0.7px -10.0px 0.02px #000, -9.9px -1.5px 0.02px #000, -3.5px 9.4px 0.02px #000, 8.4px 5.4px 0.02px #000, 7.1px -7.0px 0.02px #000, -5.4px -8.4px 0.02px #000, -9.4px 3.5px 0.02px #000, 1.4px 9.9px 0.02px #000, 10.0px 0.8px 0.02px #000, 2.9px -9.6px 0.02px #000, -8.7px -4.8px 0.02px #000, -6.6px 7.5px 0.02px #000, 5.9px 8.0px 0.02px #000, 9.1px -4.1px 0.02px #000, -2.1px -9.8px 0.02px #000, -10.0px -0.1px 0.02px #000, -2.2px 9.8px 0.02px #000, 9.1px 4.2px 0.02px #000, 6.1px -8.0px 0.02px #000, -6.5px -7.6px 0.02px #000, -8.8px 4.7px 0.02px #000, 2.7px 9.6px 0.02px #000, 10.0px -0.6px 0.02px #000, 1.5px -9.9px 0.02px #000, -9.3px -3.6px 0.02px #000, -5.5px 8.4px 0.02px #000, 7.0px 7.2px 0.02px #000, 8.5px -5.3px 0.02px #000, -3.4px -9.4px 0.02px #000, -9.9px 1.3px 0.02px #000, -0.8px 10.0px 0.02px #000, 9.6px 2.9px 0.02px #000, 4.9px -8.7px 0.02px #000, -7.5px -6.7px 0.02px #000, -8.1px 5.9px 0.02px #000, 4.0px 9.2px 0.02px #000, 9.8px -2.0px 0.02px #000, 0.2px -10.0px 0.02px #000, -9.7px -2.3px 0.02px #000, -4.3px 9.0px 0.02px #000, 7.9px 6.1px 0.02px #000;
+}
+
+
+.HallarPuentesYCiclos h2{
+    margin-top: auto;
+    font-family:'letters';
+    font-weight: bolder;
+    color:white;
+}
+
+.BotonHallarPuentesYCiclos{
+    display:block;
+    font-size:60px;
+    border: 5px solid transparent;
+    width: 237px;
+    height: 39px;
+    position: relative;
+    left: 750px;
+    bottom: 570px;
+    border: 5px solid black;
+}
+
+.BotonHallarPuentesYCiclos input{
+    right:1px;
+}
+
+#Resultados{
+    display:block;
+    border: 3px solid black;
+    width: 700px;
+    height: 200px;
+    bottom: 750px;
+    background:#fff;
+    overflow: scroll;
+    font: caption;
+    position: relative;
+
+}
+
+#Resultados #parra1 {
+    color: blue;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+}
+
+#Resultados #parra2 {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+}
+
+
+input[type="text"]{
+    font-size: 40px;
+    position: relative;
+   
+}
+
+input[type="button"]{
+    font-size: 30px;
+    position: relative;
+}
+
+
+
+
+
+#algoritmopuente{
+    border-radius: 20px;
+    display:block;
+    width: 700px;
+    height: 700px;
+    border: 5px solid black;
+    position:relative;
+    background:rgb(160, 199, 243);
+    left:1480px;
+    bottom:2038px; 
+    font-size: 30px;
+    color:black;
+    font-family:'letters';
+    font-weight: bolder;
+
+}
+
+#algoritmopuente p ad { 
+    color: rgb(0, 119, 0)
+}
+
+#algoritmopuenteUtil{
+    border-radius: 20px;
+    display:block;
+    width: 1100px;
+    height: 950px;
+    border: 5px solid black;
+    position:relative;
+    background:rgb(160, 199, 243);
+    left:1480px;
+    bottom:2037px; 
+    font-size: 30px;
+    color:black;
+    font-family:'letters';
+    font-weight: bolder;
+}
+
+#algoritmopuenteUtil p ad { 
+    color: rgb(0, 119, 0)
+}
+
+#explicacion{
+    display:block;
+    border-radius: 20px;
+    width: 1100px;
+    height: 280px;
+    border: 5px solid black;
+    position:relative;
+    text-align: center;
+    bottom: 660px;
+    background:rgb(144, 230, 136);
+    color:black;
+    font-family:'letters';
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+
+

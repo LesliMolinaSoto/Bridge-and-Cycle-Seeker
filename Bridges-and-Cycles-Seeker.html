@@ -1,0 +1,350 @@
+<html>
+<head>
+
+    <script type="text/javascript" src="vis/dist/vis.js"></script>
+    <link href="vis/dist/vis.css" rel="stylesheet" type="text/css">
+    <link href="css/estilos.css" rel="stylesheet" type="text/css">
+    
+
+</head>
+<boddy>
+
+    <div id="unmsm">
+        
+    </div>
+
+    <div id="desarrolladores">
+        <p>&nbsp;&nbsp;Desarrolladores: </p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;BAYES ENRIQUEZ, Humberto Valentin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16200107</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;MOLINA SOTO, Lesly Lisbeth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15200132</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;MUÑOZ CAPCHA, Alex Cristhian&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16200137</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;MARQUINA CARIHUASARI, Alfonso Francisco&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15200128</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;PAREJAS FUNDAR, Jorge Rubén&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16200024</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;RAMIREZ MARTINEZ, Aldo Raúl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16200151</p>
+    </div>
+
+    <div id="grafica"></div>
+   
+    <div class= Nodos>
+            <h2>Nodos:</h2>    
+    </div>
+    
+    <div class=InputNodos>
+        <input type="text" id="cantidadnodos">
+    </div>
+
+    <div class=BotonNodos>
+        <input type="button" id="boton" value="Enviar" onclick="ingresarnuevonodo()">
+    </div>
+
+    <div class= Aristas>
+        <h2>Aristas: </h2>
+    </div>
+
+    <div class=Input1Aristas>
+        <input type="text" id="node1" disabled="true">
+    </div>
+    <div class=Input2Aristas>
+        <input type="text" id="node2" disabled="true">
+    </div>
+    <div class=BotonAristas>
+        <input type="button" id="creararista" value="Crear" disabled="true" onclick ="crearnuevaarista()">
+    </div>
+
+    
+    <div class= HallarPuentesYCiclos>
+        <h2>Hallar Puentes y Ciclos</h2>
+    </div>
+
+    <div class= BotonHallarPuentesYCiclos>
+        <input type="button" id="puentesyciclos" value="Iniciar Busqueda" disabled="true" onclick ="buscarpuentesyciclos()">
+    </div>
+
+
+    <div id= "Resultados">
+        <p id="parra1"></p>
+        
+        <p id="parra2"></p>
+    </div>
+
+    <div id="explicacion">
+        <p id="cuadro1a">Hacemos un recorrido DFS del grafo. En el árbol DFS, una arista (u, v) ("u" es el padre de "v" en el</p>
+        <p id="cuadro1b">árbol DFS) es puente si no existe ninguna otra alternativa para llegar a "u" o un padre de "u" del</p>
+        <p id="cuadro1c">subárbol enraizado con "v". El valor low [v] indica el nodo ultimamente visitado alcanzable desde el </p>
+        <p id="cuadro1d">subárbol enraizado con "v". La condición para que una arista (u, v) sea un puente es,"low [v]> disc [u]"</p>
+    </div>
+
+    <div id="algoritmopuente">      
+        <p id="cuadro2">&nbsp;funcion puente()<br/>&nbsp;{<br/>&nbsp;&nbsp;<ad>// Marca todos los nodos como no visitados</ad><br/>&nbsp;&nbsp;boolean visited[] = new boolean[V];<br/>&nbsp;&nbsp;int disc[] = new int[V];<br/>&nbsp;&nbsp;int disc[] = new int[V];<br/>&nbsp;&nbsp;int low[] = new int[V];<br/>&nbsp;&nbsp;int parent[] = new int[V];<br/>&nbsp;&nbsp;<ad>// Inicializa los padres y visitados</ad><br/>&nbsp;&nbsp;for (int i = 0; i < V; i++)<br/>&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent[i] = -1;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visited[i] = false;<br/>&nbsp;&nbsp;}<br/>&nbsp;&nbsp;<ad>// Llama  la funcion recursiva para encontrar puentes</ad><br/>&nbsp;&nbsp;<ad>// en el arbol DFS enraizado en el nodo "i"</ad><br/>&nbsp;&nbsp;for (int i = 0; i < V; i++)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (visited[i] == false)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;puenteUtil(i, visited, disc, low, parent);<br/>&nbsp;}</p> 
+    </div>
+
+    <div id="algoritmopuenteUtil">
+        <p id="cuadro3">&nbsp;funcion puenteUtil(int u, boolean visited[], int disc[], int low[], int parent[])<br/>&nbsp;{<br/>&nbsp;&nbsp;visited[u] = true;&nbsp;&nbsp;<ad>//Marca el nodo actual como visitado</ad><br/>&nbsp;&nbsp;disc[u] = low[u] = ++time;&nbsp;&nbsp;<ad>//Inicializa las veces visitadas y el valor de low (time comienza como cero)</ad><br/>&nbsp;&nbsp;Iterator<Integer> i = adj[u].iterator();<br/>&nbsp;&nbsp;<ad>//Va a travez de todos nodos adyacentes</ad><br/>&nbsp;&nbsp;while (i.hasNext())<br/>&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int v = i.next();&nbsp;&nbsp;<ad>//v es el siguiente de u</ad><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ad>// Si v no ha sido visitado aun, se convierte en nodo hijo</ad><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ad>//de u en el arbol DFS y se hace la funcion recursiva para este mismo</ad><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ad>//Si v no es visitado aun, se hace la funcion recursiva asi mismo automaticamente.</ad><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!visited[v])<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent[v] = u;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bridgeUtil(v, visited, disc, low, parent);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ad>//Verifica si el subarbol enraizado con v tiene una</ad><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ad>//conexion con uno de los antecesores de u</ad><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;low[u]  = Math.min(low[u], low[v]);<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ad>//Si el no más bajo accesible desde el subárbol</ad><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ad>//debajo de v está debajo de u en el árbol DFS</ad><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ad>//entonces u-v es un puente</ad><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (low[v] > disc[u])<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Print u; Print v&nbsp;&nbsp;<ad>//Arista (u,v) como puente</ad><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<ad>// Actualiza el valor de low en u para que la llame a la funcion del padre</ad><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else if (v != parent[u])<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;low[u]  = Math.min(low[u], disc[v]);<br/>&nbsp;&nbsp;}&nbsp;}</p>
+    </div>
+   
+
+
+    <script type="text/javascript">
+    function fadeIn(el, time) {
+    el.style.opacity = 0;
+
+    var last = +new Date();
+    var tick = function() {
+    el.style.opacity = +el.style.opacity + (new Date() - last) / time;
+    last = +new Date();
+
+    if (+el.style.opacity < 1) {
+        (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
+    }
+    };
+    tick();
+    }
+
+    document.getElementById("cuadro1a").style.opacity="0";
+    document.getElementById("cuadro1b").style.opacity="0";
+    document.getElementById("cuadro1c").style.opacity="0";
+    document.getElementById("cuadro1d").style.opacity="0";
+    document.getElementById("cuadro2").style.opacity="0";
+    document.getElementById("cuadro3").style.opacity="0";
+    var vertices = new vis.DataSet();
+    var aristas = new vis.DataSet();
+    var ari=0;
+    var maxim=0;
+    var g1;
+    var ALLARIS= [];
+    var PUEARIS=[];
+    var vortex;    
+
+    class Grafo{
+    NIL = -1;
+    constructor(v){
+        vortex=v;
+        this.tiempos = 0;
+        if (this.V === undefined)
+            this.V = 0;
+        if (this.adj === undefined)
+            this.adj = null;
+        this.V = v;
+        this.adj = (function (s) { var a = []; while (s-- > 0)
+            a.push(null); return a; })(v);
+        for (var i = 0; i < v; ++i) {
+            this.adj[i] = ([]);
+        }
+    }
+
+    addArista = function (x, w) {
+     
+            /* add */ (this.adj[x].push(w) > 0);
+            /* add */ (this.adj[w].push(x) > 0);
+    };
+
+    puenteUtil = function (u, visited, disc, low, parent) {
+        visited[u] = true;
+        disc[u] = low[u] = ++this.tiempos;
+        var i = (function (a) { var i = 0; return { next: function () { return i < a.length ? a[i++] : null; }, hasNext: function () { return i < a.length; } }; })(this.adj[u]);
+        while ((i.hasNext())) {
+            {
+                var v = i.next();
+                if (!visited[v]) {
+                    parent[v] = u;
+                    this.puenteUtil(v, visited, disc, low, parent);
+                    low[u] = Math.min(low[u], low[v]);
+                    if (low[v] > disc[u]){
+                        PUEARIS.push((u+1).toString()+","+(v+1).toString());
+                        
+                    }
+                            
+                }
+                else if (v !== parent[u])
+                    low[u] = Math.min(low[u], disc[v]);
+            }
+        }
+        ;
+    };
+    puente = function () {
+        var visited = (function (s) { var a = []; while (s-- > 0)
+            a.push(false); return a; })(this.V);
+        var disc = (function (s) { var a = []; while (s-- > 0)
+            a.push(0); return a; })(this.V);
+        var low = (function (s) { var a = []; while (s-- > 0)
+            a.push(0); return a; })(this.V);
+        var parent = (function (s) { var a = []; while (s-- > 0)
+            a.push(0); return a; })(this.V);
+        for (var i = 0; i < this.V; i++) {
+            {
+                parent[i] = Grafo.NIL;
+                visited[i] = false;
+            }
+            ;
+        }
+        for (var i = 0; i < this.V; i++) {
+            if (visited[i] === false)
+                this.puenteUtil(i, visited, disc, low, parent);
+            ;
+        }
+    };
+};
+
+
+    
+var contenedor = document.getElementById("grafica");
+var datos = {nodes: vertices, edges: aristas};
+var opciones = {
+    edges:{
+        color :{}
+        }
+};
+
+var grafo = new vis.Network(contenedor, datos, opciones);
+
+
+var ingresarnuevonodo = function(n){
+        n = parseInt(document.getElementById("cantidadnodos").value);
+        maxim=MAXaristas(n);
+        g1= new Grafo(n);
+        for( i=1; i<=n;i++ ){
+            vertices.add([{id: i,label:i.toString()}]);
+            
+        }
+        document.getElementById("cantidadnodos").disabled=true
+        document.getElementById("boton").disabled=true
+        document.getElementById("node1").disabled=false
+        document.getElementById("node2").disabled=false
+        document.getElementById("creararista").disabled=false;
+    }
+    
+var crearnuevaarista = function(nod1, nod2){
+        var id1 = parseInt(document.getElementById("node1").value);
+        var id2 = parseInt( document.getElementById("node2").value);
+        if(id1>vortex||id2>vortex){
+            alert("Uno de los nodos no existe");
+            document.getElementById("node1").value="";
+            document.getElementById("node2").value="";
+        }else{
+            pararista = id1.toString()+","+id2.toString();
+            var existeId = aristas.get(pararista);
+            var existeId2 = aristas.get(id2.toString()+","+id1.toString());
+
+        if(existeId || existeId2){
+                alert("Esta arista ya existe");
+                document.getElementById("node1").value="";
+                document.getElementById("node2").value="";
+        } else{
+            
+        ALLARIS.push(pararista);    
+        g1.addArista(id1-1,id2-1);
+        ari=ari+1
+
+        aristas.add([{id: pararista, from: id1, to: id2, width:4}]); 
+    
+        document.getElementById("node1").value="";
+        document.getElementById("node2").value="";
+
+        var contenedor = document.getElementById("grafica");
+        var datos = {nodes: vertices, edges: aristas};
+        var opciones = {
+        edges:{
+            color :{}
+        }
+        };
+        var grafo = new vis.Network(contenedor, datos, opciones);
+
+        if(ari==maxim){
+            document.getElementById("node1").disabled=true
+            document.getElementById("node2").disabled=true
+            document.getElementById("creararista").disabled=true
+        }
+        if(ari>0){
+            document.getElementById("puentesyciclos").disabled=false;
+        }
+        }
+        }  
+        
+}
+
+
+
+var buscarpuentesyciclos = function(){
+        document.getElementById("node1").disabled=true;
+        document.getElementById("node2").disabled=true;
+        document.getElementById("creararista").disabled=true;
+        document.getElementById("puentesyciclos").disabled=true;
+        fadeIn(document.getElementById("cuadro1a"),1000);
+        fadeIn(document.getElementById("cuadro1b"),1000);
+        fadeIn(document.getElementById("cuadro1c"),1000);
+        fadeIn(document.getElementById("cuadro1d"),1000);
+        fadeIn(document.getElementById("cuadro2"),1000);
+        fadeIn(document.getElementById("cuadro3"),1000);
+
+        g1.puente();
+        for(k=0;k<ALLARIS.length;k++){
+                    aristas.update({id:ALLARIS[k],color:{color:'red',highlight:'red',inherit:false}});
+                    for(l=0;l<PUEARIS.length;l++){
+                        var indef1= ALLARIS[k].match(/\d+/g)[0];
+                        var indef2= ALLARIS[k].match(/\d+/g)[1];
+                        var reverse= indef2+","+indef1;
+                        if(ALLARIS[k].localeCompare(PUEARIS[l])==0){
+                            aristas.update({id:ALLARIS[k],color:{color:'blue',highlight:'blue',inherit:false}});
+                        }
+                    }
+        }
+
+   
+          
+        var respuesta1;
+        var respuesta2;
+       
+        if(PUEARIS.length<ari){
+            if(PUEARIS.length==0){
+                respuesta1 = "No hay aristas AZULES que sean puentes\n\n"
+                respuesta2 = "Todas las aristas ROJAS forman ciclos."
+                document.getElementById("parra2").innerText=respuesta1+respuesta2;
+            }else{
+                respuesta1 = "Estas aristas AZULES son PUENTES: \n\n";
+                 for(x=0;x<PUEARIS.length;x++){
+                 var texto1 = PUEARIS[x].match(/\d+/g)[0];
+                 var texto2 = PUEARIS[x].match(/\d+/g)[1];
+                 respuesta1=respuesta1+"("+texto1+", "+texto2+")\n\n";
+            }
+
+            respuesta2="Las demas aristas ROJAS forman CICLOS entre si.";
+            
+        
+            document.getElementById("parra1").innerText=respuesta1;
+            document.getElementById("parra2").innerText=respuesta2;
+            }
+            
+        }else{
+            respuesta1="Todas las aristas AZULES son PUENTES: \n\n";
+            for(x=0;x<PUEARIS.length;x++){
+                var texto1 = PUEARIS[x].match(/\d+/g)[0];
+                var texto2 = PUEARIS[x].match(/\d+/g)[1];
+                respuesta1=respuesta1+"("+texto1+", "+texto2+")\n\n";
+            }
+            respuesta2="No se detectan aristas ROJAS que formen ciclos.";
+            document.getElementById("parra1").innerText=respuesta1+respuesta2;
+        
+
+        } 
+        
+        
+        
+
+        var contenedor = document.getElementById("grafica");
+        var datos = {nodes: vertices, edges: aristas};
+        var grafo = new vis.Network(contenedor, datos, opciones);
+}
+
+var MAXaristas = function(inp){
+        var ent1 = inp;
+        var ent2 = inp-1;
+        var mul = ent1*ent2;
+        var divi = mul/2;
+        return(divi);
+}
+
+
+</script>
+
+</boddy>
+</html>
