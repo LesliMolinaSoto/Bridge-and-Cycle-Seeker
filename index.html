@@ -283,7 +283,7 @@ var buscarpuentesyciclos = function(){
                         var indef1= ALLARIS[k].match(/\d+/g)[0];
                         var indef2= ALLARIS[k].match(/\d+/g)[1];
                         var reverse= indef2+","+indef1;
-                        if(ALLARIS[k].localeCompare(PUEARIS[l])==0){
+                        if(ALLARIS[k].localeCompare(PUEARIS[l])==0||reverse.localeCompare(PUEARIS[l])==0){
                             aristas.update({id:ALLARIS[k],color:{color:'blue',highlight:'blue',inherit:false}});
                         }
                     }
